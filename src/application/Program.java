@@ -1,7 +1,6 @@
 package application;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.Locale;
 
 import model.dao.DaoFactory;
@@ -14,10 +13,12 @@ public class Program {
 	public static void main(String[] args) throws ParseException {
 		Locale.setDefault(Locale.US);
 
-		Department obj = new Department(1, "Books");
-		Seller seller = new Seller(2, "Bob Grey", "bob@gmail.com", new Date(), 2500.50, obj);
+
+
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
+		Seller seller = sellerDao.findById(4);
+		System.out.println(seller);
 		
 	}
 
