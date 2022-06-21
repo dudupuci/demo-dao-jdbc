@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,8 +42,12 @@ public class Program {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-	    
-
+		
+		System.out.println("\n==== TEST 4: seller insert ====");
+	    Seller newSeller = new Seller(null, "Eduardo Pucinelli", "dudupucinelli@gmail.com", new Date(), 1900.00, department);
+        sellerDao.insert(newSeller);
+        
+        System.out.println("Insert done! "+newSeller.getId());
 	}
 
 }
