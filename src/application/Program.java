@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -18,6 +18,7 @@ public class Program {
 
 	public static void main(String[] args) throws ParseException {
 		Locale.setDefault(Locale.US);
+		Scanner read = new Scanner(System.in);
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -51,16 +52,18 @@ public class Program {
 
 		System.out.println("Insert done! " + newSeller.getId());
 
-		System.out.println("\n==== TEST 4: seller update ====");
-     
-        
-        seller = sellerDao.findById(5);
-        seller.setName("Pedrinho");
-        seller.setBaseSalary(5450.00);
-        sellerDao.update(seller);
-        System.out.println("Updated");
-        
-        
+		System.out.println("\n==== TEST 5: seller update ====");
+
+		
+
+		System.out.println("\n==== TEST 6: seller remove ====");
+        System.out.println("Enter a ID to remove: ");
+        int id = read.nextInt();
+        sellerDao.deleteById(id);
+		
+		System.out.println("Removed! ");
+		
+		read.close();
 
 	}
 
