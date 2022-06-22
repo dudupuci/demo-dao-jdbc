@@ -116,8 +116,6 @@ public class SellerDaoJDBC implements SellerDao {
 			if (rows == 0) {
 				throw new DbException("Id has not found in MySQL");
 			}
-			
-			
 
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
